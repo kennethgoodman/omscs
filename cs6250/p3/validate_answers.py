@@ -35,19 +35,35 @@ def diff_two_dicts(d1, d2):
                 print("There is a difference MyAnswer[{}][{}] = {}, Answer[{}][{}] = {}".format(
                     _k, k, _d1[k], _k, k, _d2[k]
                 ))
+                return False
 
     for k1 in d1:
         if k1 not in d2:
-            print("Error missing {} from d2".format(k1))
+            print("Error mis`sing {} from d2".format(k1))
+            return False
         _diff_two_dicts(d1[k1], d2[k1], k1)
-
+    return True
 
 def run_validation():
+    total_correct = 0
+    total = 0
     for f in os.listdir('MyAnswers/'):
+        if "." == f[0] or f == "BadTopo.log":
+            continue
+        total += 1
         print("-"*10, f, "-"*10)
         print("validating student output for format")
-        validateStudentOutput('MyAnswers/{}'.format(f))
+        correct = validateStudentOutput('MyAnswers/{}'.format(f))
+        if not correct:
+            print("Did not validate correctly")
+            continue
         print("validating done")
         d1 = file_to_dict('MyAnswers/{}'.format(f))
         d2 = file_to_dict('Logs/{}'.format(f))
-        diff_two_dicts(d1, d2)
+        correct = diff_two_dicts(d1, d2)
+        total_correct += correct
+        if not correct:
+            print("Did not validate correctly")
+    print("-"*25)
+    print("total done", total)
+    print("correct =", total_correct, "/", total)

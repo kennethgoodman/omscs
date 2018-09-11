@@ -10,6 +10,8 @@ import os
 files = os.listdir('Topologies')
 
 for file in files:
+    if "." == file[0]:
+        continue
     print("running {}".format(file))
     try:
         file, _ = file.split(".")
