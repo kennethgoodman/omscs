@@ -16,7 +16,7 @@ for file in files:
     try:
         file, _ = file.split(".")
         # Start up the logfile
-        open_log('MyAnswers/{}.log'.format(file))
+        open_log('MyAnswers/{}.log'.format(file), should_print_it=False)
         # Populate the topology
         topo = Topology('Topologies/{}.txt'.format(file))
         # Run the topology.

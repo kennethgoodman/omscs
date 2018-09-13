@@ -7,24 +7,28 @@
 
 "Helpers for Project 3."
 logfile = None
+print_it = True
 current_logs = None
 ROUND_SEP = "-----\n"
 ALPHABETIZE = True
 
 
-def open_log(filename):
+def open_log(filename, should_print_it=True):
     global logfile
     global current_logs
+    global print_it
 
     logfile = open(filename, "w")
     current_logs = dict()
-
+    print_it = should_print_it
 
 def add_entry(switch, logstring):
     global current_logs
+    global print_it
 
     current_logs[switch] = logstring
-    print switch + ":" + logstring
+    if print_it:
+        print switch + ":" + logstring
 
 
 def finish_round():

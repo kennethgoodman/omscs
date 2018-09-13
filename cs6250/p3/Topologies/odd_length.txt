@@ -1,0 +1,18 @@
+# Odd Length Cycle
+#                  AB  <--(0)--> CC
+#                /  ^
+#               /   |
+#              /    |
+#        (-7) /     |
+#            /      |
+#           /      (+1)
+#          /        |
+#         /         |
+#        V          |
+#       AD -(+1)->  AE
+#
+# Node, Neighbor, Weight, Neighbor, Weight  (repeat as needed)
+AB,AD,-7,CC,0
+CC,AB,0
+AD,AE,1
+AE,AB,1
