@@ -25,10 +25,10 @@ from helpers import *
 #     exit()
 
 # Start up the logfile
-open_log('MyAnswers/SimpleTopo.log')
+open_log('MyAnswers/simplified_complex_topo.log')
 
 # Populate the topology
-topo = Topology('SimpleTopo.txt')
+topo = Topology('Topologies/simplified_complex_topo.txt')
 
 # Run the topology.
 topo.run_topo()
