@@ -1,0 +1,27 @@
+# Simplified Yet Still Complex Topology
+#
+#(-50)---ATT<--(1)--> CMCT
+#  |    ^ | ^          ^   
+#  |   /  |  \      (0)|      
+#  | (50) |  (2)       |    
+#  v /    |    \       v  
+# UGA   (-8)    VZ    TWC  
+#  ^ \    |      ^     | 
+#  | (50) |       \   (1)   
+#  |   \  |       (8)  |  
+#  |    v v         \  v    
+# (0)---GSAT--(-3)-> VONA 
+#         ^         /   
+#          \       /     
+#           --(3)--    
+#
+# File Format:
+# Node, Neighbor, Weight, Neighbor, Weight  (repeat as needed)
+#
+CMCT,ATT,1,TWC,0
+TWC,CMCT,0,VONA,1
+VONA,VZ,8,GSAT,3
+VZ,ATT,2
+ATT,UGA,-50,GSAT,-8,CMCT,1
+GSAT,VONA,-3,UGA,0
+UGA,ATT,50,GSAT,50
